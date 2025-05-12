@@ -49,7 +49,24 @@ namespace SeriesAnalyzerProgram
 
         static List<double> NewInputSeries()
         {
+            List<double> series = new List<double>();
+            Console.WriteLine("Enter at least 3 positive numbers (Press ENTER or enter a non-number to stop)");
 
+            while (true)
+            {
+                Console.WriteLine($"Number {series.Count + 1}: ");
+                string input = Console.ReadLine()!;
+                if (string.IsNullOrWhiteSpace(input) || !TryConvertPositiveNumbers(input, out double number))
+                    break;
+                series.Add(number);
+            }
+
+            while (series.Count < 3)
+            {
+                Console.WriteLine("Need at least 3 positive numbers. ");
+                if (TryConvertPositiveNumbers(Console.ReadLine()!, out double number)) series.Add(number);
+            }
+            return series;
         }
 
         // Menu Handling

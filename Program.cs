@@ -88,7 +88,8 @@ namespace SeriesAnalyzerProgram
 
         static char GetMenuOption()
         {
-
+            string input = Console.ReadLine()!.ToLower();
+            return (input.Length == 1 && input[0] >= 'a' && input[0] <= 'z') ? input[0] : GetMenuOption();
         }
 
         static (bool, List<double>) ProcessOption(char option, List<double> series)

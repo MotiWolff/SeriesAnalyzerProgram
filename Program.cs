@@ -8,6 +8,25 @@ namespace SeriesAnalyzerProgram
         static void Main(string[] args)
         {
             // Program manager, handling input, looping over menu
+            Console.WriteLine("Welcome to the Series Analyzer!");
+            List<double> numberSeries = args.Length > 0 ? ConvertArgsToSeries(args) : new List<double>();
+
+            if (numberSeries.Count < 3)
+            {
+                Console.WriteLine("Not enough numbers. Please enter a new series. ");
+                numberSeries = NewInputSeries();
+            }
+
+            bool exit = false;
+
+            while (!exit)
+            {
+                DisplayMenu();
+                char option = GetMenuOption();
+                (exit, List<double> newSeries) = ProcessOption(option, numberSeries);
+                if (newSeries != null) numberSeries = newSeries;
+            }
+            Console.WriteLine("Thanks for using Series Analyzer!");
         }
 
         // Input & Validation

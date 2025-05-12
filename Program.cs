@@ -72,7 +72,18 @@ namespace SeriesAnalyzerProgram
         // Menu Handling
         static void DisplayMenu()
         {
-
+            Console.WriteLine("\n--- Menu ---");
+            Console.WriteLine("a. Input new series");
+            Console.WriteLine("b. Show oringinal");
+            Console.WriteLine("c. Show reversed");
+            Console.WriteLine("d. Show sorted");
+            Console.WriteLine("e. Max value");
+            Console.WriteLine("f. Min value");
+            Console.WriteLine("g. Average");
+            Console.WriteLine("h. Count");
+            Console.WriteLine("i. Sum");
+            Console.WriteLine("j. Exit");
+            Console.WriteLine("Choose option (a-j)");
         }
 
         static char GetMenuOption()

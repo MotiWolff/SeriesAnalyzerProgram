@@ -42,7 +42,9 @@ namespace SeriesAnalyzerProgram
 
         static bool TryConvertPositiveNumbers(string input, out double number)
         {
-
+            bool valid = double.TryParse(input, out number) && number > 0;
+            if (!valid) Console.WriteLine($"Invalid input {input}");
+            return valid;
         }
 
         static List<double> NewInputSeries()

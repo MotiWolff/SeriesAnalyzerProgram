@@ -94,7 +94,20 @@ namespace SeriesAnalyzerProgram
 
         static (bool, List<double>) ProcessOption(char option, List<double> series)
         {
-
+            switch (option)
+            {
+                case 'a': return (false, NewInputSeries());
+                case 'b': ShowSeries(series, "Original"); break;
+                case 'c': ShowSeries(series, "Reversed"); break;
+                case 'd': ShowSeries(series, "Sorted"); break;
+                case 'e': Console.WriteLine($"Max: {GetMax(series)}"); break;
+                case 'f': Console.WriteLine($"Min: {GetMin(series)}"); break;
+                case 'g': Console.WriteLine($"Average: {GetAverage(series)}"); break;
+                case 'h': Console.WriteLine($"Count: {series.Count}"); break;
+                case 'i': Console.WriteLine($"Sum: {GetSum(series)}"); break;
+                case 'j': return (true, null);
+            }
+            return (false, null);
         }
 
         // Display

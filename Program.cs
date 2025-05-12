@@ -113,7 +113,8 @@ namespace SeriesAnalyzerProgram
         // Display
         static void ShowSeries(List<double> series, string label)
         {
-
+            Console.WriteLine($"\n{label} Series: ");
+            Console.Write("[ " + string.Join(", ", series) + " ]\n");
         }
 
         // Series Operations

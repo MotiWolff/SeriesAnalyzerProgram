@@ -32,7 +32,12 @@ namespace SeriesAnalyzerProgram
         // Input & Validation
         static List<double> ConvertArgsToSeries(string[] args)
         {
-
+            List<double> series = new List<double>();
+            foreach (string arg in args)
+            {
+                if (TryConvertPositiveNumbers(arg, out double number)) series.Add(number);
+            }
+            return series;
         }
 
         static bool TryConvertPositiveNumbers(string input, out double number)

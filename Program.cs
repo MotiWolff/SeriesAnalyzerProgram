@@ -98,8 +98,8 @@ namespace SeriesAnalyzerProgram
             {
                 case 'a': return (false, NewInputSeries());
                 case 'b': ShowSeries(series, "Original"); break;
-                case 'c': ShowSeries(series, "Reversed"); break;
-                case 'd': ShowSeries(series, "Sorted"); break;
+                case 'c': ShowSeries(GetReversed(series), "Reversed"); break;
+                case 'd': ShowSeries(GetSorted(series), "Sorted"); break;
                 case 'e': Console.WriteLine($"Max: {GetMax(series)}"); break;
                 case 'f': Console.WriteLine($"Min: {GetMin(series)}"); break;
                 case 'g': Console.WriteLine($"Average: {GetAverage(series)}"); break;
@@ -120,7 +120,9 @@ namespace SeriesAnalyzerProgram
         // Series Operations
         static List<double> GetReversed(List<double> series)
         {
-
+            List<double> reversed = new List<double>();
+            for (int i = series.Count - 1; i >= 0; i--) reversed.Add(series[i]);
+            return reversed;
         }
 
         static List<double> GetSorted(List<double> series)

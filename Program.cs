@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 
 namespace SeriesAnalyzerProgram
 {
 
-    // Main cass for analyzing number series with multiple operations
+    // Main class for analyzing number series with multiple operations
     class SeriesAnalyzerProgram
     {
+        // Static variable accessible for any function
+        static List<double> numberSeries = new List<double>();
         static void Main(string[] args)
         {
             // Program manager, handling input, looping over menu
             Console.WriteLine("Welcome to the Series Analyzer!");
-            // Initialize series from args or get new series input
-            List<double> numberSeries = args.Length > 0 ? ConvertArgsToSeries(args) : new List<double>();
+
+            // Initialize series from args
+            if (args.Length > 0) numberSeries = ConvertArgsToSeries(args);
 
             // Ensure minimum element are 3
             if (numberSeries.Count < 3)
@@ -29,8 +31,8 @@ namespace SeriesAnalyzerProgram
                 DisplayMenu();
                 char option = GetMenuOption();
                 // Process user selection and update series if neccessary
-                (exit, List<double>? newSeries) = ProcessOption(option, numberSeries);
-                if (newSeries != null) numberSeries = newSeries;
+                exit = ProcessOption(option);
+
             }
             Console.WriteLine("Thanks for using Series Analyzer!");
         }
@@ -86,7 +88,7 @@ namespace SeriesAnalyzerProgram
         {
             Console.WriteLine("\n--- Menu ---");
             Console.WriteLine("a. Input new series");
-            Console.WriteLine("b. Show oringinal");
+            Console.WriteLine("b. Show original");
             Console.WriteLine("c. Show reversed");
             Console.WriteLine("d. Show sorted");
             Console.WriteLine("e. Max value");
@@ -101,28 +103,45 @@ namespace SeriesAnalyzerProgram
         // Gets and validates a menu selection from the user
         static char GetMenuOption()
         {
-            string input = Console.ReadLine()!.ToLower();
-            return (input.Length == 1 && input[0] >= 'a' && input[0] <= 'z') ? input[0] : GetMenuOption();
+            Console.Write("Enter your choice: ");
+            string input = Console.ReadLine()!;
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                Console.WriteLine("Please enter a valid option (a-j).");
+                return GetMenuOption();
+            }
+
+            char option = input.ToLower()[0];
+            if (option >= 'a' && option <= 'j')
+            {
+                return option;
+            }
+            else
+            {
+                Console.WriteLine("Invalid option. Please enter a letter between a and j.");
+                return GetMenuOption();
+            }
         }
 
         // Processes the user's menu selection and performs the right operation
         // Returns (exitMark, new series if exists)
-        static (bool, List<double>?) ProcessOption(char option, List<double> series)
+        static bool ProcessOption(char option)
         {
             switch (option)
             {
-                case 'a': return (false, NewInputSeries());
-                case 'b': ShowSeries(series, "Original"); break;
-                case 'c': ShowSeries(GetReversed(series), "Reversed"); break;
-                case 'd': ShowSeries(GetSorted(series), "Sorted"); break;
-                case 'e': Console.WriteLine($"Max: {GetMax(series)}"); break;
-                case 'f': Console.WriteLine($"Min: {GetMin(series)}"); break;
-                case 'g': Console.WriteLine($"Average: {GetAverage(series)}"); break;
-                case 'h': Console.WriteLine($"Count: {series.Count}"); break;
-                case 'i': Console.WriteLine($"Sum: {GetSum(series)}"); break;
-                case 'j': return (true, null);
+                case 'a': numberSeries = NewInputSeries(); break;
+                case 'b': ShowSeries(numberSeries, "Original"); break;
+                case 'c': ShowSeries(GetReversed(numberSeries), "Reversed"); break;
+                case 'd': ShowSeries(GetSorted(numberSeries), "Sorted"); break;
+                case 'e': Console.WriteLine($"Max: {GetMax(numberSeries)}"); break;
+                case 'f': Console.WriteLine($"Min: {GetMin(numberSeries)}"); break;
+                case 'g': Console.WriteLine($"Average: {GetAverage(numberSeries)}"); break;
+                case 'h': Console.WriteLine($"Count: {numberSeries.Count}"); break;
+                case 'i': Console.WriteLine($"Sum: {GetSum(numberSeries)}"); break;
+                case 'j': return true;
             }
-            return (false, null);
+            return false;
         }
 
         // Display
@@ -154,7 +173,7 @@ namespace SeriesAnalyzerProgram
             return sorted;
         }
 
-        // Retuens max value in the series
+        // Returns max value in the series
         static double GetMax(List<double> series)
         {
             double max = series[0];

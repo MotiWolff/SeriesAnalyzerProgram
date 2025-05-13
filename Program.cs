@@ -137,7 +137,9 @@ namespace SeriesAnalyzerProgram
 
         static double GetMax(List<double> series)
         {
-
+            double max = series[0];
+            foreach (var num in series) if (num > max) max = num;
+            return max;
         }
 
         static double GetMin(List<double> series)

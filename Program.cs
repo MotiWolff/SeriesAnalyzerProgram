@@ -3,14 +3,18 @@ using System.Collections.Generic;
 
 namespace SeriesAnalyzerProgram
 {
+
+    // Main cass for analyzing number series with multiple operations
     class SeriesAnalyzerProgram
     {
         static void Main(string[] args)
         {
             // Program manager, handling input, looping over menu
             Console.WriteLine("Welcome to the Series Analyzer!");
+            // Initialize series from args or get new series input
             List<double> numberSeries = args.Length > 0 ? ConvertArgsToSeries(args) : new List<double>();
 
+            // Ensure minimum element are 3
             if (numberSeries.Count < 3)
             {
                 Console.WriteLine("Not enough numbers. Please enter a new series. ");
@@ -19,10 +23,12 @@ namespace SeriesAnalyzerProgram
 
             bool exit = false;
 
+            // Main program loop
             while (!exit)
             {
                 DisplayMenu();
                 char option = GetMenuOption();
+                // Process user selection and update series if neccessary
                 (exit, List<double>? newSeries) = ProcessOption(option, numberSeries);
                 if (newSeries != null) numberSeries = newSeries;
             }
@@ -30,6 +36,7 @@ namespace SeriesAnalyzerProgram
         }
 
         // Input & Validation
+        // Converts arfs to a list of positive numbers
         static List<double> ConvertArgsToSeries(string[] args)
         {
             List<double> series = new List<double>();
@@ -40,6 +47,7 @@ namespace SeriesAnalyzerProgram
             return series;
         }
 
+        // Validates and parses input to ensure it's a positive number
         static bool TryConvertPositiveNumbers(string input, out double number)
         {
             bool valid = double.TryParse(input, out number) && number > 0;
@@ -47,11 +55,13 @@ namespace SeriesAnalyzerProgram
             return valid;
         }
 
+        // Collects a new series of at least 3 positive numbers
         static List<double> NewInputSeries()
         {
             List<double> series = new List<double>();
             Console.WriteLine("Enter at least 3 positive numbers (Press ENTER or enter a non-number to stop)");
 
+            // Collects numbers until user enters invalid input
             while (true)
             {
                 Console.WriteLine($"Number {series.Count + 1}: ");
@@ -61,6 +71,7 @@ namespace SeriesAnalyzerProgram
                 series.Add(number);
             }
 
+            // Ensure minimum element are 3
             while (series.Count < 3)
             {
                 Console.WriteLine("Need at least 3 positive numbers. ");
@@ -70,6 +81,7 @@ namespace SeriesAnalyzerProgram
         }
 
         // Menu Handling
+        // Displays the available operations menu
         static void DisplayMenu()
         {
             Console.WriteLine("\n--- Menu ---");
@@ -86,12 +98,15 @@ namespace SeriesAnalyzerProgram
             Console.WriteLine("Choose option (a-j)");
         }
 
+        // Gets and validates a menu selection from the user
         static char GetMenuOption()
         {
             string input = Console.ReadLine()!.ToLower();
             return (input.Length == 1 && input[0] >= 'a' && input[0] <= 'z') ? input[0] : GetMenuOption();
         }
 
+        // Processes the user's menu selection and performs the right operation
+        // Returns (exitMark, new series if exists)
         static (bool, List<double>?) ProcessOption(char option, List<double> series)
         {
             switch (option)
@@ -111,6 +126,7 @@ namespace SeriesAnalyzerProgram
         }
 
         // Display
+        // Formats and display a number series with a description
         static void ShowSeries(List<double> series, string label)
         {
             Console.WriteLine($"\n{label} Series: ");
@@ -118,6 +134,8 @@ namespace SeriesAnalyzerProgram
         }
 
         // Series Operations
+
+        // Creates a new list with numbers in reversed order
         static List<double> GetReversed(List<double> series)
         {
             List<double> reversed = new List<double>();
@@ -125,6 +143,7 @@ namespace SeriesAnalyzerProgram
             return reversed;
         }
 
+        // Creates a new sorted list using bubble sort algorithm
         static List<double> GetSorted(List<double> series)
         {
             List<double> sorted = new List<double>(series);
@@ -135,6 +154,7 @@ namespace SeriesAnalyzerProgram
             return sorted;
         }
 
+        // Retuens max value in the series
         static double GetMax(List<double> series)
         {
             double max = series[0];
@@ -142,6 +162,7 @@ namespace SeriesAnalyzerProgram
             return max;
         }
 
+        // Retuens min value in the series
         static double GetMin(List<double> series)
         {
             double min = series[0];
@@ -149,8 +170,10 @@ namespace SeriesAnalyzerProgram
             return min;
         }
 
+        // Retuens average value in the series
         static double GetAverage(List<double> series) => GetSum(series) / series.Count;
 
+        // Retuens sum of all values in the series
         static double GetSum(List<double> series)
         {
             double sum = 0;

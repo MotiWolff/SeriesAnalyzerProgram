@@ -144,7 +144,9 @@ namespace SeriesAnalyzerProgram
 
         static double GetMin(List<double> series)
         {
-
+            double min = series[0];
+            foreach (var num in series) if (num < min) min = num;
+            return min;
         }
 
         static double GetAverage(List<double> series)

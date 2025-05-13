@@ -127,7 +127,12 @@ namespace SeriesAnalyzerProgram
 
         static List<double> GetSorted(List<double> series)
         {
-
+            List<double> sorted = new List<double>(series);
+            for (int i = 0; i < sorted.Count - 1; i++)
+                for (int j = i + 1; j < sorted.Count; j++)
+                    if (sorted[i] > sorted[j])
+                        (sorted[i], sorted[j]) = (sorted[j], sorted[i]);
+            return sorted;
         }
 
         static double GetMax(List<double> series)

@@ -149,10 +149,7 @@ namespace SeriesAnalyzerProgram
             return min;
         }
 
-        static double GetAverage(List<double> series)
-        {
-
-        }
+        static double GetAverage(List<double> series) => GetSum(series) / series.Count;
 
         static double GetSum(List<double> series)
         {

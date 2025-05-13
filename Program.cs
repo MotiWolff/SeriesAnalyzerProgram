@@ -23,7 +23,7 @@ namespace SeriesAnalyzerProgram
             {
                 DisplayMenu();
                 char option = GetMenuOption();
-                (exit, List<double> newSeries) = ProcessOption(option, numberSeries);
+                (exit, List<double>? newSeries) = ProcessOption(option, numberSeries);
                 if (newSeries != null) numberSeries = newSeries;
             }
             Console.WriteLine("Thanks for using Series Analyzer!");
@@ -92,7 +92,7 @@ namespace SeriesAnalyzerProgram
             return (input.Length == 1 && input[0] >= 'a' && input[0] <= 'z') ? input[0] : GetMenuOption();
         }
 
-        static (bool, List<double>) ProcessOption(char option, List<double> series)
+        static (bool, List<double>?) ProcessOption(char option, List<double> series)
         {
             switch (option)
             {

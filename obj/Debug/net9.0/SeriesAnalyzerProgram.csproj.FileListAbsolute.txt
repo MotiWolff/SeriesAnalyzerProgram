@@ -1,0 +1,15 @@
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/bin/Debug/net9.0/SeriesAnalyzerProgram
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/bin/Debug/net9.0/SeriesAnalyzerProgram.deps.json
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/bin/Debug/net9.0/SeriesAnalyzerProgram.runtimeconfig.json
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/bin/Debug/net9.0/SeriesAnalyzerProgram.dll
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/bin/Debug/net9.0/SeriesAnalyzerProgram.pdb
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.AssemblyInfoInputs.cache
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.AssemblyInfo.cs
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.csproj.CoreCompileInputs.cache
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.sourcelink.json
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.dll
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/refint/SeriesAnalyzerProgram.dll
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.pdb
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/SeriesAnalyzerProgram.genruntimeconfig.cache
+/Users/mordechaywolff/Desktop/צבאות השם/8200 Training/Days/Day6/SeriesAnalyzerProgram/obj/Debug/net9.0/ref/SeriesAnalyzerProgram.dll

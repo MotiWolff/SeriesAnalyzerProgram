@@ -153,6 +153,9 @@ namespace SeriesAnalyzerProgram
 
         static double GetSum(List<double> series)
         {
+            double sum = 0;
+            foreach (var num in series) sum += num;
+            return sum;
 
         }
 
